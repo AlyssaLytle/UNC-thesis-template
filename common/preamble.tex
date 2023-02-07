@@ -1,0 +1,182 @@
+\documentclass[11pt,letterpaper,twoside]{report}
+
+\usepackage{blindtext}
+
+
+
+% This package allows me to put the proper entries in the TOC for chapters and
+% appendices.
+\usepackage{apptools}
+
+% Layout
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\titleformat*{\section}{\normalfont\Large\bfseries\singlespacing}
+\titleformat*{\subsection}{\normalfont\large\bfseries\singlespacing}
+\titleformat*{\subsubsection}{\normalfont\normalsize\bfseries\singlespacing}
+
+\usepackage{tocloft}
+% Using {2} instead of {1} would list subfigures.  I don't think the graduate
+% school would like that.
+\setcounter{lofdepth}{1}
+% Indent the first paragraph of a section, per graduate school's new
+% requirements.
+\usepackage{indentfirst}
+% Don't indent footnotes, per graduate school's new requirements.
+\usepackage[hang,flushmargin]{footmisc}
+
+% Citation style
+\usepackage[square,comma,sort&compress]{natbib}
+%\usepackage{apalike}
+
+%\usepackage[T1]{fontenc}
+
+% Allows for more sophisticated manipulation of length variables.
+\usepackage{calc}
+
+% include citations inline
+\usepackage{bibentry}
+\nobibliography*
+
+% Figures
+% Bjoern used subfigure, but I use subcaption.  Either could be used, but it
+% might be necessary to tweak arguments to other packages for compatibility.
+%\usepackage{subfigure}
+\usepackage[labelformat=simple,list=on]{subcaption}
+%\renewcommand\thesubfigure{(\alph{subfigure})}
+%\captionsetup{belowskip=4pt}
+\usepackage{graphicx}
+\graphicspath{{figs/}}
+%\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{listings}
+%\usepackage{subfig}
+
+% Multi-row table cells
+\usepackage{multirow}
+
+% Enumeration
+% \usepackage{enumitem}
+
+
+\usepackage{algorithm} 
+%\floatname{algorithm}{Listing}
+\usepackage[noend]{algpseudocode} 
+\usepackage{verbatim}
+
+% Math
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{thmtools}
+\usepackage{bm}
+% Restatable theorems.  I used this to be able to repeat a theorem in the
+% appendix with the same numbering as in the dissertation.
+\usepackage{thm-restate}
+
+% Tikz
+\usepackage{tikz}
+\usepackage{fontawesome5}
+\usetikzlibrary{arrows, arrows.meta, decorations.pathreplacing, patterns, automata, positioning, fit, shapes, backgrounds, calc, patterns.meta}
+
+% Macros
+\usepackage{ifthen} % used for, e.g., \job macro with optional job number
+
+% Algorithms.  A different algorithms package should work well, but these
+% settings are the best for algorithm2e.
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+% % \usepackage[]{algorithm2e}
+% \usepackage[algo2e,lined,boxed,algochapter]{algorithm2e}
+% \setlength{\algomargin}{1.7em}
+% \SetAlgoSkip{}
+% \SetAlCapSkip{2ex}
+% \SetAlCapSty{textnormal}
+
+
+%\makeatletter
+%\renewcommand{\ALG@name}{Listing}
+%\makeatother
+
+% Typography
+% Bjoern used \usepackage{times}, which doesn't affect math mode.  This one is
+% better because it does.
+\usepackage{mathptmx}
+% less curvy mathcal symbols.
+% http://tex.stackexchange.com/questions/109968/my-mathcalu-turns-out-to-be-curvy-different-than-default
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+\usepackage{microtype}
+\usepackage{textcomp}
+
+% Macro support
+\usepackage{xspace}
+\xspaceaddexceptions{]\}$)$}
+
+% Commenting
+\usepackage{comment}
+
+% % Fixed-width font for listings (https://tex.stackexchange.com/questions/451339/sans-serif-font-in-text-monospace-serif-within-algorithm)
+\makeatletter
+\algrenewcommand\ALG@beginalgorithmic{\ttfamily}
+\makeatother
+
+
+% Fixes
+\usepackage{makerobust}
+
+\usepackage{url}
+\usepackage{breakurl}
+\def\UrlBreaks{\do\/\do-}
+
+
+
+% For weird tables:
+% \usepackage{tabularx}
+% \usepackage{threeparttable}
+\usepackage{multirow}
+
+% \def\chaptertobuild{conclusion/main}\input{main.tex}
+
+% Support for building only one chapter at a time.
+% \ifdefined\chaptertobuild
+%     \includeonly{\chaptertobuild}
+%     \newcommand*\updatechaptername{}
+% \fi
+
+% For rules:
+% There may be a more elegant way to do this.
+% Note that you must have the following line before loading enumitem, otherwise
+% things break in weird, hard-to-debug ways.
+\let\labelindent\relax
+\usepackage{enumitem}
+\newenvironment{rules}[1]
+{\begin{enumerate}[label=\textbf{#1\arabic*}, ref=#1\arabic*, itemsep=1pt,
+topsep=2pt]}
+{\end{enumerate}}
+
+\newenvironment{rrules}[2]
+{\begin{enumerate}[label=\textbf{#1\arabic*}, ref=#1\arabic*, start=#2,
+itemsep=1pt, topsep=2pt]}
+{\end{enumerate}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\hyphenation{Off-loading}
+\hyphenation{Dangerous}
+\hyphenation{Interface}
+
+% PDF links
+\usepackage[hidelinks,pdfauthor={Alyssa Byrnes}, pdfpagemode={UseOutlines}]{hyperref} % backref=page
+
+% PDF version
+\pdfminorversion=7 % doesn't seem to work
+
+%Todo notes
+\usepackage[colorinlistoftodos]{todonotes}
+
+\usepackage{pdfcomment}

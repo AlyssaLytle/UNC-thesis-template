@@ -1,0 +1,88 @@
+\input{common/preamble}
+\input{common/layout}
+\input{common/macros}
+
+
+
+% https://www.overleaf.com/learn/latex/Questions/What_does_%22%5Cpdfendlink_ended_up_in_different_nesting_level_than_%5Cpdfstartlink%22_mean%3F
+\begin{document}
+
+% front matter pages use 2in top margin
+\newgeometry{left=1in,top=2in,right=1in,bottom=1in,nohead}
+\pagenumbering{roman}
+
+%1. Title Page
+\include{frontmatter/titlepage}
+
+\newgeometry{left=1in,top=8.47in,right=1in,bottom=1in,nohead}
+%2. Copyright Page (optional)
+\include{frontmatter/copyright}
+
+\newgeometry{left=1in,top=2in,right=1in,bottom=1in,nohead}
+% Normal pages from here on out; TOC title takes care of 2in requirement.
+\restoregeometry
+%3. Abstract
+\include{frontmatter/abstract}
+
+
+
+%4. Dedication, Acknowledgement(s) and/or Preface (all optional)
+\include{frontmatter/dedication}
+\include{frontmatter/acknowledgment}
+%\include{frontmatter/preface}
+
+
+
+%5. Table of Contents, with page references
+\include{frontmatter/contents}
+
+
+%6. List of Tables, with titles and page references (if applicable)
+\include{frontmatter/tables}
+
+
+
+
+
+%7. List of Figures or Illustrations, with titles and page references (if applicable)
+\include{frontmatter/figures}
+
+%8. List of Abbreviations (if applicable)
+\include{frontmatter/abbreviations}
+
+%9. List of Symbols (if applicable)
+\include{frontmatter/symbols}
+
+\pagenumbering{arabic}
+% Put "Chapter X: " in the TOC
+%\updatechaptername
+% chapters
+ \include{chapter1/main}
+ \include{chapter2_background/main}
+ \include{chapter3_chname/main}
+\include{chapter4_chname/main}
+\include{chapter5_conclusion/main}
+
+
+
+%See \citep{bbbdiss} for examples of everything. 
+%\ldots
+% \include{conclusion/main}
+% ...
+
+
+
+
+% Bibliography
+\include{common/references}
+
+\newpage
+% % Appendices
+% \appendix
+% % Put "Appendix X: " in the TOC
+% \updatechaptername
+% % Use 1" top margin for appendices instead of 2".
+% \titlespacing{\chapter}{0in}{-.38in}{11pt}
+%\include{backmatter/appendix.tex}
+
+\end{document}

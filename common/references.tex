@@ -1,0 +1,19 @@
+\clearpage
+\phantomsection
+
+{\def\chapter*#1{} % suppress bibliograph header.
+\begin{singlespace}
+\addcontentsline{toc}{chapter}{BIBLIOGRAPHY}
+\begin{center}
+% Don't use \Large to keep the graduate school from getting mad.
+\textbf{BIBLIOGRAPHY}
+%\vspace{11pt}
+\end{center}
+
+\bibliographystyle{ieeetr}
+\bibliography{references.bib}
+\end{singlespace}
+}
+
+
+

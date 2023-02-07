@@ -1,0 +1,39 @@
+% Center and don't make large.
+\renewcommand{\contentsname}{\hfill TABLE OF CONTENTS \hfill}
+\renewcommand{\cfttoctitlefont}{\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftdotsep}{1.5}
+\cftsetrmarg{1.0in}
+
+\setlength{\cftbeforetoctitleskip}{61pt}
+\setlength{\cftaftertoctitleskip}{11pt}
+
+% format chapter entries like other entries
+\renewcommand{\cftchapfont}{\normalfont}
+\renewcommand{\cftchappagefont}{\normalfont}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+
+% This incantation is necessary to do "Chapter X: " and "Appendix X: "
+% properly.
+\renewcommand{\cftchappresnum}{\chaptertitlename~}
+\renewcommand{\cftchapaftersnum}{:}
+\makeatletter
+\newcommand*\updatechaptername{%
+        \addtocontents{toc}{
+        \protect\renewcommand*\protect\cftchappresnum{\@chapapp\ }
+        \IfAppendix{\protect\renewcommand*\protect\cftchapnumwidth{5.5em}}
+        {\protect\renewcommand*\protect\cftchapnumwidth{4.5em}}
+        }
+}
+\makeatother
+
+\setlength{\cftbeforechapskip}{15pt}
+\setlength{\cftbeforesecskip}{10pt}
+\setlength{\cftbeforesubsecskip}{10pt}
+\setlength{\cftbeforesubsubsecskip}{10pt}
+
+\begin{singlespace}
+\tableofcontents
+\end{singlespace}
+
+\clearpage

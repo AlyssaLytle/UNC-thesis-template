@@ -1,0 +1,17 @@
+\renewcommand{\listfigurename}{LIST OF FIGURES}
+\phantomsection
+\addcontentsline{toc}{chapter}{LIST OF FIGURES}
+
+\setlength{\cftbeforeloftitleskip}{-11pt}
+\setlength{\cftafterloftitleskip}{11pt} % was 22pt
+% Don't make \Large
+\renewcommand{\cftloftitlefont}{\hfill\bfseries}
+\renewcommand{\cftafterloftitle}{\hfill}
+
+\setlength{\cftbeforefigskip}{10pt}
+\cftsetrmarg{1.0in}
+
+\begin{singlespace}
+\listoffigures
+\end{singlespace}
+\clearpage
